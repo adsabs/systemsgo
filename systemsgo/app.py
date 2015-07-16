@@ -8,6 +8,7 @@ from views import CachedTime
 from flask import Flask
 from flask.ext.restful import Api
 from cache import cache
+from flask.ext.consulate import Consul, ConsulConnectionError
 
 def create_app():
     """
@@ -19,6 +20,7 @@ def create_app():
     app.url_map.strict_slashes = False
 
     # Load config and logging
+    Consul(app) # load_config expects consul to be registered
     load_config(app)
     logging.config.dictConfig(
         app.config['SYSTEMSGO_LOGGING']
@@ -52,6 +54,12 @@ def load_config(app):
         app.config.from_pyfile('local_config.py')
     except IOError:
         app.logger.warning('Could not load local_config.py')
+
+    try:
+        app.extensions['consul'].apply_remote_config()
+    except ConsulConnectionError as error:
+        app.logger.warning('Could not apply config from consul: {error}'
+                           .format(error=error))
 
 if __name__ == '__main__':
     app = create_app()
