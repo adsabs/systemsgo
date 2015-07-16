@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/jonnybazookatone/systemsgo.svg?branch=master)](https://travis-ci.org/jonnybazookatone/systemsgo)
-
+[![Coverage Status](https://coveralls.io/repos/jonnybazookatone/systemsgo/badge.svg?branch=master&service=github)](https://coveralls.io/github/jonnybazookatone/systemsgo?branch=master)
 # All Systems Go
 
 Astrophysic Data System's status pages
