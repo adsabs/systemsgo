@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jonnybazookatone/systemsgo.svg?branch=master)](https://travis-ci.org/jonnybazookatone/systemsgo)
+
 # All Systems Go
 
 Astrophysic Data System's status pages
