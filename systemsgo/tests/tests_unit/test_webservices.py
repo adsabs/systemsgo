@@ -62,7 +62,7 @@ class TestFunctionalWorkFlow(TestBase):
         # The user waits a given time for the cache to empty, and then revisits
         # finding that some sites are now unresponsive
         response3 = self.client.get(url)
-        self.asertEqul(response3.status_code, 200)
+        self.assertEqual(response3.status_code, 200)
         # self.assertIn('Offline', response3.data)
 
 class TestCachedTime(TestBase):
