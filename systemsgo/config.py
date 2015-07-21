@@ -4,6 +4,14 @@ Configuration file. Please prefix application specific config values with
 the application name.
 """
 
+# Front end server list
+SYSTEMSGO_FRONT_END_SERVER_LIST = [
+    dict(
+        name='Bumblebee',
+        url='https://ui.adsabs.harvard.edu'
+        )
+]
+
 # Cache settings
 CACHE = {'CACHE_TYPE': 'simple'}
 
