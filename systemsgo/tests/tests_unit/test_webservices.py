@@ -65,6 +65,23 @@ class TestFunctionalWorkFlow(TestBase):
         self.assertEqual(response3.status_code, 200)
         # self.assertIn('Offline', response3.data)
 
+class TestUnitFlow(TestBase):
+    """
+    General unit tests
+    """
+
+    def test_that_homeview_returns_filled_template(self):
+        """
+        Tests that the HomeView returns a correctly filled template
+        """
+        url = url_for('homeview')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        for front_end in current_app.config['SYSTEMSGO_FRONT_END_SERVER_LIST']:
+            self.assertIn('{0}: Online'
+                          .format(front_end['name']), response.data)
+
 class TestCachedTime(TestBase):
     """
     Class to test the CachedTime
