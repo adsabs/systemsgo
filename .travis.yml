@@ -6,5 +6,5 @@ install:
 script:
  - nosetests systemsgo/tests/
 after_success:
- - coverage combine
+ - coverage run --source=. systemsgo/tests/test_webservices.py
  - coveralls
