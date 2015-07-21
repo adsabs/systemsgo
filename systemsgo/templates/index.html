@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>
+            ADS Status Page
+        </title>
+    </head>
+
+    <body>
+
+    <ul>
+        {% for service in response_list %}
+            <li>
+                {{ service.name }}: {{ service.status }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    </body>
+</html>
