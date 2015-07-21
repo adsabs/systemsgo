@@ -4,7 +4,7 @@ Application factory
 """
 
 import logging.config
-from views import CachedTime
+from views import CachedTime, HomeView
 from flask import Flask
 from flask.ext.restful import Api
 from cache import cache
@@ -33,6 +33,7 @@ def create_app():
     api = Api(app)
 
     # Add end points
+    api.add_resource(HomeView, '/')
     api.add_resource(CachedTime, '/time')
 
     return app

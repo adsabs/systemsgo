@@ -12,6 +12,16 @@ from flask.ext.restful import Resource
 from utils import get_post_data, err
 from cache import cache
 
+class HomeView(Resource):
+    """
+    Return the home page template with the content filled.
+    """
+    def get(self):
+        """
+        HTTP GET Request
+        """
+        return 'Online'
+
 class CachedTime(Resource):
     """
     Return time but cached for 1 minute
