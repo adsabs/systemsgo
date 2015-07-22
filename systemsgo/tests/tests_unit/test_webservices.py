@@ -87,7 +87,7 @@ class TestSystemsGo(TestCase):
         self.assertEqual(response.status_code, 200)
 
         for front_end in current_app.config['SYSTEMSGO_FRONT_END_SERVER_LIST']:
-            self.assertIn('{0}: online'
+            self.assertIn('{0}</a>: online'
                           .format(front_end['name']), response.data)
 
     def test_the_status_of_a_service(self):
