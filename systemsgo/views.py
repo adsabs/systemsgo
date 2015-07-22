@@ -3,14 +3,14 @@
 Views
 """
 
-import json
 import requests
-import datetime
 
-from flask import current_app, request, render_template, make_response
+from flask import current_app, render_template, make_response
 from flask.ext.restful import Resource
-from utils import get_post_data, err
 from cache import cache
+
+MINUTES = 60.0  # seconds
+SYSTEMSGO_CACHE_TIMEOUT = 5*MINUTES
 
 class HomeView(Resource):
     """
@@ -27,9 +27,26 @@ class HomeView(Resource):
         """
         response = requests.get(url)
         if response.status_code == 200:
-            return 'Online'
+            return 'online'
         else:
-            return 'Offline'
+            return 'offline'
+
+    @staticmethod
+    @cache.cached(timeout=SYSTEMSGO_CACHE_TIMEOUT)
+    def check_bulk_status(service_list):
+        """
+        Checks the status of a list of services, and returns a blob with the
+        response, updating the dictionary to include the status. This should
+        allow simpler caching of the response into a single blob.
+
+        :param service_list: a list of dictionaries, which contains the
+                             keywords: 'name', 'url'
+        :return: keyword 'status' is added to the service_list
+        """
+        response = service_list[:]
+        for service in response:
+            service['status'] = HomeView.check_status(service['url'])
+        return response
 
     def get(self):
         """
@@ -37,16 +54,11 @@ class HomeView(Resource):
 
         An index page is rendered and returned
         """
-        # Make a copy of the config file so that it can be modified, but does
-        # not affect elsewhere
-        response_list = current_app.config[
-            'SYSTEMSGO_FRONT_END_SERVER_LIST'
-        ][:]
 
         # Check the status using the staticmethod
-        for service in response_list:
-            status = HomeView.check_status(service['url'])
-            service['status'] = status
+        response_list = HomeView.check_bulk_status(
+            current_app.config['SYSTEMSGO_FRONT_END_SERVER_LIST'][:]
+        )
 
         # Return the filled template
         return make_response(
@@ -54,16 +66,3 @@ class HomeView(Resource):
             200,
             {'Content-Type': 'text/html'}
         )
-
-class CachedTime(Resource):
-    """
-    Return time but cached for 1 minute
-    """
-    @cache.cached(timeout=3)
-    def get(self):
-        """
-        HTTP GET request
-        :return: datetime object
-        """
-
-        return {'time': datetime.datetime.utcnow().isoformat()}, 200

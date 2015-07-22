@@ -9,11 +9,16 @@ SYSTEMSGO_FRONT_END_SERVER_LIST = [
     dict(
         name='Bumblebee',
         url='https://ui.adsabs.harvard.edu'
-        )
+        ),
+    dict(
+        name='Hourly',
+        url='http://hourly.adslabs.org'
+    )
 ]
 
 # Cache settings
 CACHE = {'CACHE_TYPE': 'simple'}
+SYSTEMSGO_CACHE_TIMEOUT = 10  # seconds
 
 # Log settings
 SYSTEMSGO_LOGGING = {

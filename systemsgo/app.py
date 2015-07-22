@@ -4,7 +4,7 @@ Application factory
 """
 
 import logging.config
-from views import CachedTime, HomeView
+from views import HomeView
 from flask import Flask
 from flask.ext.restful import Api
 from cache import cache
@@ -20,7 +20,7 @@ def create_app():
     app.url_map.strict_slashes = False
 
     # Load config and logging
-    Consul(app) # load_config expects consul to be registered
+    Consul(app)  # load_config expects consul to be registered
     load_config(app)
     logging.config.dictConfig(
         app.config['SYSTEMSGO_LOGGING']
@@ -34,7 +34,6 @@ def create_app():
 
     # Add end points
     api.add_resource(HomeView, '/')
-    api.add_resource(CachedTime, '/time')
 
     return app
 
