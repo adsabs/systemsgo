@@ -3,8 +3,7 @@
 Views
 """
 
-import requests
-
+import urllib
 from flask import current_app, render_template, make_response
 from flask.ext.restful import Resource
 from cache import cache
@@ -25,8 +24,11 @@ class HomeView(Resource):
 
         :return: 'Online' is response, 'Offline' is unresponsive
         """
-        response = requests.get(url)
-        if response.status_code == 200:
+
+        # which is faster? requests or urllib?
+        status_code = urllib.urlopen(url).getcode()
+
+        if status_code == 200:
             return 'online'
         else:
             return 'offline'

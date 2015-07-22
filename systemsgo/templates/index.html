@@ -12,7 +12,7 @@
     <ul>
         {% for service in response_list %}
             <li>
-                {{ service.name }}: {{ service.status }}
+                <a href="{{service.url}}">{{ service.name }}</a>: {{ service.status }}
             </li>
         {% endfor %}
     </ul>

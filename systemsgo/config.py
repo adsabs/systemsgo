@@ -6,14 +6,26 @@ the application name.
 
 # Front end server list
 SYSTEMSGO_FRONT_END_SERVER_LIST = [
-    dict(
-        name='Bumblebee',
-        url='https://ui.adsabs.harvard.edu'
-        ),
-    dict(
-        name='Hourly',
-        url='http://hourly.adslabs.org'
-    )
+    {
+        'name': 'Bumblebee',
+        'url': 'https://ui.adsabs.harvard.edu'
+    },
+    {
+        'name': 'Hourly',
+        'url': 'http://hourly.adslabs.org'
+    },
+    {
+        'name': 'API',
+        'url': 'https://api.adsabs.harvard.edu/status'
+    },
+    {
+        'name': 'ADS 2.0 (BEER)',
+        'url': 'http://labs.adsabs.harvard.edu/adsabs/'
+    },
+    {
+        'name': 'ADS Classic',
+        'url': 'http://adsabs.harvard.edu/'
+    }
 ]
 
 # Cache settings
