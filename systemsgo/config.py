@@ -48,7 +48,7 @@ SYSTEMSGO_LOGGING = {
             'formatter': 'default',
             'level': 'DEBUG',
             'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': '/tmp/slackback.log',
+            'filename': '/tmp/systemsgo.log',
         },
         'console': {
             'formatter': 'default',

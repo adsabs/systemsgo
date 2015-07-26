@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Bumblebee",
+      "url": "https://ui.adsabs.harvard.edu",
+      "status": "online",
+      "img": "imgs/bumblebee.png"
+    },
+    {
+      "name": "ADS Classic",
+      "url": "http://adsabs.harvard.edu",
+      "status": "offline",
+      "img": "imgs/adsclassic.png"
+    }
+]

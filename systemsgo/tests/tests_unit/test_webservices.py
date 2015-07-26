@@ -77,6 +77,23 @@ class TestSystemsGo(TestCase):
         app_ = app.create_app()
         return app_
 
+    def test_that_homeview_returns_json_on_get(self):
+        """
+        Tests that the HomeView returns a JSON string with the
+        expected format
+        """
+        url = url_for('homeview')
+        with MockStatusService():
+            response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        self.assertTrue(len(response.json) > 0)
+
+        for entry in response.json:
+            for key in ['status', 'url', 'name']:
+                self.assertIn(key, entry.keys())
+
+    @unittest.skip('Deprecated')
     def test_that_homeview_returns_filled_template(self):
         """
         Tests that the HomeView returns a correctly filled template

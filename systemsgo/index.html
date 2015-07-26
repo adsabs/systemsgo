@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="ads-services">
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/angular.min.js"></script>    
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+
+  <body ng-controller="FrontendController as frontend">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+                            <img src="imgs/ads_logo.png" width="400"/>
+                            <h3>Status page of the front end web services.</h3>
+			</div>
+			<div class="row" ng-repeat="service in frontend.services">
+                                <hr>
+				<div class="col-md-2">
+                                    <a href="{{service.url}}">{{service.name}}</a>
+				</div>
+				<div class="col-md-1">
+                                    <img ng-src="{{service.img}}" width="42"/>
+				</div>
+				<div class="col-md-7">
+				</div>
+				<div class="col-md-1">
+                                    {{service.status}}
+				</div>
+			</div>
+                        <hr>
+		</div>
+	</div>
+</div>
+
+
+  </body>
+
+</html>

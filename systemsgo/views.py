@@ -63,8 +63,4 @@ class HomeView(Resource):
         )
 
         # Return the filled template
-        return make_response(
-            render_template('index.html', response_list=response_list),
-            200,
-            {'Content-Type': 'text/html'}
-        )
+        return response_list, 200

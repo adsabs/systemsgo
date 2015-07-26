@@ -33,7 +33,7 @@ def create_app():
     api = Api(app)
 
     # Add end points
-    api.add_resource(HomeView, '/')
+    api.add_resource(HomeView, '/status')
 
     return app
 
