@@ -6,6 +6,7 @@ Application factory
 import logging.config
 from views import HomeView
 from flask import Flask
+from flask.ext.cors import CORS
 from flask.ext.restful import Api
 from cache import cache
 from flask.ext.consulate import Consul, ConsulConnectionError
@@ -29,6 +30,8 @@ def create_app():
     # Cache
     cache.init_app(app, config=app.config['CACHE'])
 
+    # CORS
+    CORS(app, resource={r'/status': {'origins': 'localhost'}})
     # Register extensions
     api = Api(app)
 

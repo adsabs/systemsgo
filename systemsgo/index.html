@@ -23,11 +23,12 @@
                                     <a href="{{service.url}}">{{service.name}}</a>
 				</div>
 				<div class="col-md-1">
-                                    <img ng-src="{{service.img}}" width="42"/>
+                                    <img ng-src="{{service.img}}" width="50"/>
 				</div>
 				<div class="col-md-7">
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-1" ng-style="service.status === 'online' && {'color': 'green'} || 
+                                                                service.status === 'offline' && {'color': 'red'}">
                                     {{service.status}}
 				</div>
 			</div>

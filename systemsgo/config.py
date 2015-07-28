@@ -8,23 +8,28 @@ the application name.
 SYSTEMSGO_FRONT_END_SERVER_LIST = [
     {
         'name': 'Bumblebee',
-        'url': 'https://ui.adsabs.harvard.edu'
+        'url': 'https://ui.adsabs.harvard.edu',
+        'img': 'imgs/bumblebee.png'
     },
     {
         'name': 'Hourly',
-        'url': 'http://hourly.adslabs.org'
+        'url': 'http://hourly.adslabs.org',
+        'img': 'imgs/bumblebee.png'
     },
     {
         'name': 'API',
-        'url': 'https://api.adsabs.harvard.edu/status'
+        'url': 'https://api.adsabs.harvard.edu/status',
+        'img': 'imgs/bumblebee.png'
     },
     {
         'name': 'ADS 2.0 (BEER)',
-        'url': 'http://labs.adsabs.harvard.edu/adsabs/'
+        'url': 'http://labs.adsabs.harvard.edu/adsabs/',
+        'img': 'imgs/adslabs.jpg'
     },
     {
         'name': 'ADS Classic',
-        'url': 'http://adsabs.harvard.edu/'
+        'url': 'http://adsabs.harvard.edu/',
+        'img': 'imgs/adsclassic.png'
     }
 ]
 
