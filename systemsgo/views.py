@@ -11,6 +11,18 @@ from cache import cache
 MINUTES = 60.0  # seconds
 SYSTEMSGO_CACHE_TIMEOUT = 5*MINUTES
 
+class IndexView(Resource):
+    """
+    Return the index page. This is temporary until the app is deployed on its
+    own instance.
+    """
+    def get(self):
+        """
+        HTTP GET request
+        :return: index html page
+        """
+        return current_app.send_static_file('index.html')
+
 class HomeView(Resource):
     """
     Return the home page template with the content filled.

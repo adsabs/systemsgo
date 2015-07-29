@@ -161,5 +161,18 @@ class TestSystemsGo(TestCase):
             response = requests.get('http://fakeurl.com')
         self.assertEqual(response.status_code, 400)
 
+    def test_root_returns_index(self):
+        """
+        Tests that the root path returns the index html. This is a temporary
+        hack for testing simply.
+        """
+        url = url_for('indexview')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(
+            'Status page of the front end web services.' in response.data
+        )
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

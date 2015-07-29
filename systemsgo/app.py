@@ -4,7 +4,7 @@ Application factory
 """
 
 import logging.config
-from views import HomeView
+from views import HomeView, IndexView
 from flask import Flask
 from flask.ext.cors import CORS
 from flask.ext.restful import Api
@@ -17,7 +17,7 @@ def create_app():
 
     :return: flask.Flask application
     """
-    app = Flask(__name__, static_folder=None)
+    app = Flask(__name__)
     app.url_map.strict_slashes = False
 
     # Load config and logging
@@ -36,6 +36,7 @@ def create_app():
     api = Api(app)
 
     # Add end points
+    api.add_resource(IndexView, '/')
     api.add_resource(HomeView, '/status')
 
     return app
