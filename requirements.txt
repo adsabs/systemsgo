@@ -3,6 +3,7 @@ flask
 flask-restful
 Flask-Testing
 Flask-cache
+flask-cors
 requests
 httpretty
 nose
