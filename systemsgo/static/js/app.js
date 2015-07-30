@@ -10,7 +10,7 @@
     frontend = this;
 
     // Obtain the input from the service end point
-    $http.get('http://localhost:5000/status').success(function(data){
+    $http.get('https://adsisdownorjustme.herokuapp.com/status').success(function(data){
       frontend.services = data;
     });
 
