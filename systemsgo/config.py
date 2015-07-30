@@ -12,17 +12,12 @@ SYSTEMSGO_FRONT_END_SERVER_LIST = [
         'img': '/static/imgs/bumblebee.png'
     },
     {
-        'name': 'Hourly',
-        'url': 'http://hourly.adslabs.org',
-        'img': '/static/imgs/bumblebee.png'
-    },
-    {
-        'name': 'API',
+        'name': 'ADS Webservices API',
         'url': 'https://api.adsabs.harvard.edu/status',
         'img': '/static/imgs/bumblebee.png'
     },
     {
-        'name': 'ADS 2.0 (BEER)',
+        'name': 'ADS Labs (ADS 2.0)',
         'url': 'http://labs.adsabs.harvard.edu/adsabs/',
         'img': '/static/imgs/adslabs.jpg'
     },
