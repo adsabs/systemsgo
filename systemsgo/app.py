@@ -31,7 +31,12 @@ def create_app():
     cache.init_app(app, config=app.config['CACHE'])
 
     # CORS
-    CORS(app, resource={r'/status': {'origins': 'localhost'}})
+    CORS(
+        app,
+        resource={
+            r'/status': {'origins': 'https://adsisdownorjustme.herokuapp.com'}
+        }
+    )
     # Register extensions
     api = Api(app)
 
