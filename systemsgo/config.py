@@ -4,6 +4,8 @@ Configuration file. Please prefix application specific config values with
 the application name.
 """
 
+import os
+
 # Front end server list
 SYSTEMSGO_FRONT_END_SERVER_LIST = [
     {
@@ -29,7 +31,12 @@ SYSTEMSGO_FRONT_END_SERVER_LIST = [
 ]
 
 # Cache settings
-CACHE = {'CACHE_TYPE': 'simple'}
+CACHE = {
+    'CACHE_TYPE': 'memcached',
+    'CACHE_MEMCACHED': os.environ.get('MEMCACHIER_SERVERS', '').split(','),
+    'CACHE_MEMCACHED_USERNAME': os.environ.get('MEMCACHIER_USERNAME', ''),
+    'CACHE_MEMCACHED_PASSWORD': os.environ.get('MEMCACHIER_PASSWORD', '')
+}
 SYSTEMSGO_CACHE_TIMEOUT = 10  # seconds
 
 # Log settings
