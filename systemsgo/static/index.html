@@ -25,11 +25,11 @@
 				<div class="col-md-1">
                                     <img ng-src="{{service.img}}" width="50"/>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-6">
 				</div>
-				<div class="col-md-1" ng-style="service.status === 'online' && {'color': 'its just you...'} || 
-                                                                service.status === 'offline' && {'color': 'oops, we're down!'}">
-                                    {{service.status}}
+				<div class="col-md-2" ng-style="service.status === 'online' && {'color': 'green'} || 
+                                                                service.status === 'offline' && {'color': 'red'}">
+                                    {{service.status === 'online' ? 'its just you...' : 'we are down!' }}
 				</div>
 			</div>
                         <hr>
