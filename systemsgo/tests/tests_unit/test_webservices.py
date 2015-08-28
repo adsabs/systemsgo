@@ -41,7 +41,7 @@ class MockStatusService(object):
             return self.status, headers, {}
 
         HTTPretty.register_uri(
-            HTTPretty.GET,
+            HTTPretty.HEAD,
             re.compile('.*'),
             body=request_callback,
             content_type='application/json'
@@ -111,11 +111,12 @@ class TestSystemsGo(TestCase):
         """
         Tests the staticmethod that tests if a service is available or not
         """
-        with MockStatusService():
+        with MockStatusService(status=200):
             for front_end in current_app.config[
                 'SYSTEMSGO_FRONT_END_SERVER_LIST'
             ]:
                 status = HomeView.check_status(front_end['url'])
+                print status, front_end['url']
                 self.assertEqual(status, 'online')
 
     def test_batch_statuses(self):
@@ -154,11 +155,11 @@ class TestSystemsGo(TestCase):
         users supplied kwargs.
         """
         with MockStatusService():
-            response = requests.get('http://fakeurl.com')
+            response = requests.head('http://fakeurl.com')
         self.assertEqual(response.status_code, 200)
 
         with MockStatusService(status=400):
-            response = requests.get('http://fakeurl.com')
+            response = requests.head('http://fakeurl.com')
         self.assertEqual(response.status_code, 400)
 
     def test_root_returns_index(self):
