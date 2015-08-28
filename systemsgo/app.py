@@ -34,7 +34,7 @@ def create_app():
     CORS(
         app,
         resource={
-            r'/status': {'origins': 'https://adsisdownorjustme.herokuapp.com'}
+            r'/status': {'origins': app.config['CORS_ORIGINS']}
         }
     )
     # Register extensions

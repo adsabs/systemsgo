@@ -2,8 +2,8 @@
 """
 Views
 """
-
-import urllib
+import requests
+from requests.exceptions import ConnectionError
 from flask import current_app, render_template, make_response
 from flask.ext.restful import Resource
 from cache import cache
@@ -38,7 +38,10 @@ class HomeView(Resource):
         """
 
         # which is faster? requests or urllib?
-        status_code = urllib.urlopen(url).getcode()
+        try:
+            status_code = requests.head(url).status_code
+        except ConnectionError:
+            status_code = 500
 
         if status_code == 200:
             return 'online'
