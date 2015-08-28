@@ -14,6 +14,7 @@
       frontend.services = data;
     })};
 
+    getStatus();
     $interval(getStatus, 330000);
 
   }]);
