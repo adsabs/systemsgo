@@ -22,6 +22,12 @@ SYSTEMSGO_FRONT_END_SERVER_LIST = [
         'img': '/static/imgs/bumblebee.png'
     },
     {
+        'name': 'ADS Labs redirect',
+        'url': 'http://ui.adslabs.org',
+        'img': '/static/imgs/bumblebee.png'
+       
+    },
+    {
         'name': 'ADS Labs (ADS 2.0)',
         'url': 'http://labs.adsabs.harvard.edu/adsabs/',
         'img': '/static/imgs/adslabs.jpg'
