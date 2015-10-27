@@ -171,7 +171,7 @@ class TestSystemsGo(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(
-            'Status page of the front end web services.' in response.data
+            'Status page for our front end services' in response.data
         )
 
 
