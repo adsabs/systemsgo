@@ -39,7 +39,7 @@ class HomeView(Resource):
 
         # which is faster? requests or urllib?
         try:
-            status_code = requests.head(url).status_code
+            status_code = requests.head(url, allow_redirects=True, timeout=5).status_code
         except ConnectionError:
             status_code = 500
 
