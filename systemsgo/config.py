@@ -7,7 +7,7 @@ the application name.
 # import os
 
 # CORS
-CORS_ORIGINS = 'https://adsisdownorjustme.herokuapp.com'
+CORS_ORIGINS = ['https://adsisdownorjustme.herokuapp.com', 'http://adsisdownorjustme.herokuapp.com']
 
 # Front end server list
 SYSTEMSGO_FRONT_END_SERVER_LIST = [
